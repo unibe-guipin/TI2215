@@ -5,6 +5,13 @@ public class DialogoDeNumeros extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
+    private JTextField textField1;
+    private JTextField textField2;
+    private JTextField textField3;
+    private JTextField textField4;
+    private JTable table1;
+    private JTable table2;
+    private JTable table3;
 
     public DialogoDeNumeros() {
         setContentPane(contentPane);

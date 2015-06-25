@@ -1,5 +1,8 @@
 import javax.swing.*;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Highlighter;
 import java.awt.event.*;
+import java.awt.Color;
 
 public class DialogoDeNumeros extends JDialog {
     private JPanel contentPane;
@@ -13,6 +16,9 @@ public class DialogoDeNumeros extends JDialog {
     private JFormattedTextField formattedTextField3;
     private JFormattedTextField formattedTextField4;
 
+    final static Color ERROR_COLOR = Color.red;
+    final static Color RIGHT_COLOR = Color.green;
+
     public DialogoDeNumeros() {
         setContentPane(contentPane);
         setModal(true);
@@ -23,7 +29,21 @@ public class DialogoDeNumeros extends JDialog {
         int mtrz2fil = Integer.parseInt(formattedTextField3.getText());
         int mtrz2col = Integer.parseInt(formattedTextField4.getText());
 
-        
+        if (Validador.Entrada(mtrz1fil)) {
+            formattedTextField1.setBackground(RIGHT_COLOR);
+        }else  formattedTextField1.setBackground((ERROR_COLOR));
+
+        if (Validador.Entrada(mtrz1col)) {
+            formattedTextField2.setBackground(RIGHT_COLOR);
+        }else  formattedTextField2.setBackground((ERROR_COLOR));
+
+        if (Validador.Entrada(mtrz2fil)) {
+            formattedTextField3.setBackground(RIGHT_COLOR);
+        }else  formattedTextField3.setBackground((ERROR_COLOR));
+
+        if (Validador.Entrada(mtrz2col)) {
+            formattedTextField4.setBackground(RIGHT_COLOR);
+        }else  formattedTextField4.setBackground((ERROR_COLOR));
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

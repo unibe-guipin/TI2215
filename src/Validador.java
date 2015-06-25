@@ -27,7 +27,7 @@ public class Validador{
         this.mth2 = mh2;
         this.mtv2 = mv2;
 
-        if (mh1 == mh2 && mv1 && mv2){
+        if (mh1 == mh2 && mv1 == mv2){
             return true;
         }
         return false;

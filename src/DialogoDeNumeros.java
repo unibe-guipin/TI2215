@@ -5,18 +5,25 @@ public class DialogoDeNumeros extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
     private JTable table1;
     private JTable table2;
     private JTable table3;
+    private JFormattedTextField formattedTextField1;
+    private JFormattedTextField formattedTextField2;
+    private JFormattedTextField formattedTextField3;
+    private JFormattedTextField formattedTextField4;
 
     public DialogoDeNumeros() {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+
+        int mtrz1fil = Integer.parseInt(formattedTextField1.getText());
+        int mtrz1col = Integer.parseInt(formattedTextField2.getText());
+        int mtrz2fil = Integer.parseInt(formattedTextField3.getText());
+        int mtrz2col = Integer.parseInt(formattedTextField4.getText());
+
+        
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -44,6 +51,7 @@ public class DialogoDeNumeros extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
     }
 
     private void onOK() {
@@ -62,4 +70,5 @@ public class DialogoDeNumeros extends JDialog {
         dialog.setVisible(true);
         System.exit(0);
     }
+
 }

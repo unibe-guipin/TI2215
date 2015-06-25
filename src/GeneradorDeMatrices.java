@@ -8,9 +8,4 @@ public class GeneradorDeMatrices extends JFrame{
     public int mtvv;
     private JTable;
 
-    public Matriz(int mtvh, int mtvv){
-        JTable tabla = new JTable( mtvh, mtvv);
-    }
-
-
 }

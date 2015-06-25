@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.text.DefaultHighlighter;
-import javax.swing.text.Highlighter;
 import java.awt.event.*;
 import java.awt.Color;
 
@@ -24,10 +22,23 @@ public class DialogoDeNumeros extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-        int mtrz1fil = Integer.parseInt(formattedTextField1.getText());
-        int mtrz1col = Integer.parseInt(formattedTextField2.getText());
-        int mtrz2fil = Integer.parseInt(formattedTextField3.getText());
-        int mtrz2col = Integer.parseInt(formattedTextField4.getText());
+        int mtrz1fil = 0;
+        int mtrz1col = 0;
+        int mtrz2fil = 0;
+        int mtrz2col = 0;
+
+        try {
+            mtrz1fil = Integer.parseInt(formattedTextField1.getText());
+        } catch (NumberFormatException e) {formattedTextField1.setBackground(ERROR_COLOR);}
+        try {
+            mtrz1col = Integer.parseInt(formattedTextField2.getText());
+        } catch (NumberFormatException e) {formattedTextField2.setBackground(ERROR_COLOR);}
+        try {
+            mtrz2fil = Integer.parseInt(formattedTextField3.getText());
+        } catch (NumberFormatException e) {formattedTextField3.setBackground(ERROR_COLOR);}
+        try {
+            mtrz2col = Integer.parseInt(formattedTextField4.getText());
+        } catch (NumberFormatException e) {formattedTextField4.setBackground(ERROR_COLOR);}
 
         if (Validador.Entrada(mtrz1fil)) {
             formattedTextField1.setBackground(RIGHT_COLOR);
@@ -72,6 +83,12 @@ public class DialogoDeNumeros extends JDialog {
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
+        formattedTextField1.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                super.keyTyped(e);
+            }
+        });
     }
 
     private void onOK() {

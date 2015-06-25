@@ -16,7 +16,7 @@ public class Validador{
         ValidaEntrada(mtrz1h, mtrz1v, mtrz2h, mtrz2v);
     }
 
-    public static void ValidaEntrada(int mtrz1h, int mtrz1v, int mtrz2h, int mtrz2v) /*RETORNAR TRUE OR FALSE*/ {
+    public static boolean ValidaEntrada(int mtrz1h, int mtrz1v, int mtrz2h, int mtrz2v) {
         if (
                 mtrz1h >=2 &&
                 mtrz1h <= 6 &&
@@ -26,7 +26,7 @@ public class Validador{
                 mtrz2h <= 6 &&
                 mtrz2v >= 2 &&
                 mtrz2v <= 6) {
-            /*devolver true*/
+            /*devolver true test*/
         }
         /*devolver false*/
     }

@@ -1,19 +1,32 @@
 /**
  * Created by guillermo.pinales on 7/1/2015.
  */
+import java.sql.Array;
 import java.util.Scanner;
 
 public class Matrices {
 
     public static void main(String[] args) {
 
-        /*
-        int rows1 = 0;
-        int columns1 =0;
-        int rows2 = 0;
-        int columns2 = 0;
-        */
         Scanner scanner = new Scanner(System.in);
+
+        int numeros[];
+
+        for(int i = 0; i < 4; i++){
+            int numero = scanner.nextInt();
+            if ((validateEntry(numero)) == true){
+                numeros[i] = numero;
+                i++;
+            }else{
+                System.out.print("Introduzca un numéro entre 2 y 6");
+            }
+        }
+
+        int rows1 = numeros[0];
+        int columns1 = numeros[1];
+        int rows2 = numeros[2];
+        int columns2 = numeros[3];
+
 
         System.out.print("Introduzca las filas de la Primera Matriz: ");
         int rows1 = scanner.nextInt();

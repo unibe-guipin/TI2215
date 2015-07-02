@@ -1,7 +1,6 @@
 /**
  * Created by guillermo.pinales on 7/1/2015.
  */
-import java.sql.Array;
 import java.util.Scanner;
 
 public class Matrices {
@@ -10,15 +9,16 @@ public class Matrices {
 
         Scanner scanner = new Scanner(System.in);
 
-        int numeros[];
+        int numero = 0;
+        int[] numeros = new int[4];
 
         for(int i = 0; i < 4; i++){
-            int numero = scanner.nextInt();
-            if ((validateEntry(numero)) == true){
+            System.out.print("Introduzca un numéro: \n");
+            numero = scanner.nextInt();
+            if (validateEntry(numero)){
                 numeros[i] = numero;
-                i++;
             }else{
-                System.out.print("Introduzca un numéro entre 2 y 6");
+                System.out.print("Introduzca un numéro entre 2 y 6 \n");
             }
         }
 
@@ -27,15 +27,6 @@ public class Matrices {
         int rows2 = numeros[2];
         int columns2 = numeros[3];
 
-
-        System.out.print("Introduzca las filas de la Primera Matriz: ");
-        int rows1 = scanner.nextInt();
-        System.out.print("Introduzca las columnas de la Primera Matriz: ");
-        int columns1 = scanner.nextInt();
-        System.out.print("Introduzca las filas de la Segunda Matriz: ");
-        int rows2 = scanner.nextInt();
-        System.out.print("Introduzca las columnas de la Segunda Matriz: ");
-        int columns2 = scanner.nextInt();
         System.out.println();
         System.out.println("Digite los valores de la Primera Matriz");
         int[][] a = readMatrix(rows1, columns1);
@@ -90,6 +81,30 @@ public class Matrices {
         for(int i=0; i<rows; i++) {
             for(int j=0; j<columns; j++) {
                 result[i][j] = a[i][j] * b[i][j];
+            }
+        }
+        return result;
+    }
+
+    public static int[][] add2(int[][] a, int[][] b) {
+        int rows = a.length;
+        int columns = a[0].length;
+        int[][] result = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                result[i][j] = (2*(a[i][j])) + (3*(b[i][j]));
+            }
+        }
+        return result;
+    }
+
+    public static int[][] multi2(int[][] a, int[][] b) {
+        int rows = a.length;
+        int columns = a[0].length;
+        int[][] result = new int[rows][columns];
+        for(int i=0; i<rows; i++) {
+            for(int j=0; j<columns; j++) {
+                result[i][j] = (2*(a[i][j])) * (3*(b[i][j]));
             }
         }
         return result;
